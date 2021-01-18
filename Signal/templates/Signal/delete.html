@@ -1,0 +1,14 @@
+
+{% extends 'Signal/base.html' %}
+{% load static %}
+{% block content %}
+<div class='container p-3 my-3 border'>
+    <h3>Are you sure you want to delete '{{item}}'</h3>
+    <form action="{% url 'delete' item.id %}" method='POST' enctype='multipart/form-data'>
+        {% csrf_token %}
+        <a href='{% url "gallery" %}'>Go back</a>
+        <input type='submit' name='Delete' value='Delete' class='btn btn-danger'>
+    </form>
+</div>
+{% endblock content %}
+

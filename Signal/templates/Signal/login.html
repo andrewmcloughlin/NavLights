@@ -1,0 +1,42 @@
+
+{% load static %}
+<head>
+    <link href='{% static 'main.css' %}' rel='stylesheet' media='all'>
+    <link rel='preconnect' href='https://fonts.gstatic.com'>
+    <link href='https://fonts.googleapis.com/css2?family=Rochester&display=swap' rel='stylesheet'>
+</head>
+<body>
+    <div class='page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins'>
+        <div class='wrapper wrapper--w680'>
+        <div class='hello'>hello</div>
+            <div class='card card-4'>
+                <div class='card-body'>
+                    <h2 class='title'>💡 NavLights</h2>
+                    <form method='POST' action=''>
+                    {% csrf_token %}
+                        <div class='row row-space'>
+                            <div class='input-group'>
+                                <label class='label'>Username</label>
+                                <input class='input--style-4' type='text' name='username'>
+                            </div>
+                        </div>
+                        <div class='row row-space'>
+                            <div class='input-group'>
+                                <label class='label'>Password</label>
+                                <input class='input--style-4' type='password' name='password'>
+                            </div>
+                        </div>
+                        <p>Don't have an account? <a href='{% url 'register' %}'>Sign up</a></p>
+                        <div class='p-t-15'>
+                            <button class='btn btn--radius-2 btn--blue' type='submit'>Login</button>
+                        </div>
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

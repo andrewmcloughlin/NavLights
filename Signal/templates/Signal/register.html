@@ -1,0 +1,49 @@
+
+{% load static %}
+<head>
+    <link href='{% static 'main.css' %}' rel='stylesheet' media='all'>
+</head>
+<body>
+    <div class='page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins'>
+        <div class='wrapper wrapper--w680'>
+            <div class='card card-4'>
+                <div class='card-body'>
+                    <h2 class='title'>💡 NavLights Registration Form</h2>
+                    <form method='POST' action=''>
+                    {% csrf_token %}
+                        <div class='row row-space'>
+                            <div class='col-2'>
+                                <div class='input-group'>
+                                    <label class='label'>Username</label>
+                                    {{form.username}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row row-space'>
+                            <div class='col-2'>
+                                <div class='input-group'>
+                                    <label class='label'>Password</label>
+                                    {{form.password1}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row row-space'>
+                            <div class='col-2'>
+                                <div class='input-group'>
+                                    <label class='label'>Password again</label>
+                                    {{form.password2}}
+                                </div>
+                            </div>
+                        </div>
+                        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                        <div class='p-t-15'>
+                            <button class='btn btn--radius-2 btn--blue' type='submit'>Submit</button>
+                        </div>
+                    </form>
+                    {{form.errors}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

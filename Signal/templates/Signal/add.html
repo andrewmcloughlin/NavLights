@@ -1,0 +1,16 @@
+
+{% extends 'Signal/base.html' %}
+{% load static %}
+{% block content %}
+<div class='container p-3 my-3 border'>
+    <h3>Add Signal</h3>
+    <form action='' method='POST' enctype='multipart/form-data'>
+        <div class='form-group'>
+            {% csrf_token %}
+            {{form.as_p}}
+        </div>
+        <input type='submit' value='Submit' class='btn btn-primary'>
+    </form>
+</div>
+{% endblock content %}
+

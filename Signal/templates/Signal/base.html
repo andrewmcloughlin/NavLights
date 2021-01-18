@@ -1,0 +1,107 @@
+
+{% load static %}
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous'>    
+        <!-- Optional theme -->
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css' integrity='sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ' crossorigin='anonymous'>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' integrity='sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd' crossorigin='anonymous'></script>
+        <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
+        <!--<link href='{% static 'main.css' %}' rel='stylesheet' media='all'>-->
+        <script src='https://kit.fontawesome.com/37028e08c0.js' crossorigin='anonymous'></script>
+
+        <link rel='manifest' href='/manifest.json'>
+
+        <title>
+            NavLights
+        </title>
+    </head>
+    <body>
+
+{% block topnav %}
+<nav class='navbar navbar-expand-lg navbar-dark' style='background-color: black;'>
+    <a class='navbar-brand' href='\'>💡 NavLights</a>
+    <span>
+        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarToggleExternalContent' aria-controls='navbarToggleExternalContent' aria-expanded='false' aria-label='Toggle navigation'>
+            <span><i class='fas fa-search'></i></span>
+        </button>
+        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+            <span class='navbar-toggler-icon'></span>
+        </button>
+    </span>
+    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+        <ul class='navbar-nav mr-auto'>
+            <li class='nav-item'>
+                <a class='nav-item nav-link' href='/admin/'><i class='fas fa-tools'></i> Admin</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-item nav-link' href="{% url 'logout' %}"><i class='fas fa-sign-out-alt'></i> Log out</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--Search form-->
+<div class='pos-f-b'>
+  <div class='collapse' id='navbarToggleExternalContent'>
+    <div class='bg-light p-4'>
+        <h4>Search</h4>
+        <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+            <form class='form my-2 my-lg-0' role='search' method='get'>
+                <div class='form-group'>
+                    {{myFilter.form.as_p}}
+                    <button type='submit' class='btn btn-outline-success'>Search</button>
+                </div>
+            </form>
+            <span>
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarToggleExternalContent' aria-controls='navbarToggleExternalContent' aria-expanded='false' aria-label='Toggle navigation'>
+                <span><i class='fas fa-angle-up'></i></span>
+            </button>
+            </span>
+        </nav>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+<div 'container-sm border m-25 p-25'>
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+
+{% block bottomnav %}
+<nav class='navbar fixed-bottom  navbar-collapse navbar-light bg-light'>
+    <ul class='navbar navbar-collapse navbar-light bg-light'>
+        <div class='nav-item'>
+            <a class='nav-link' href="{% url 'gallery' %}">
+                <i class='fas fa-grip-horizontal'></i>
+            </a>
+        </div>
+        <div class='nav-item'>
+            <a class='nav-link' href="{% url 'table' %}">
+            <i class='fas fa-table'></i>
+           </a>
+        </div>
+        <div class='nav-item'>
+            <a class='nav-link' href="{% url 'list' %}">
+            <i class='fas fa-tags'></i>
+            </a>
+        </div>
+        <div class='nav-item'>
+            <a href='/Signal/add'>
+                <i class='fas fa-plus'></i>
+            </a>
+        </div>
+    </ul>
+</nav>
+{% endblock %}
+</body>
+</html>
+

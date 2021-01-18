@@ -1,0 +1,18 @@
+
+{% extends 'Signal/base.html' %}
+{% load static %}
+{% block content %}
+<div class='d-inline-flex flex-wrap justify-content-center container p-3 m-3 border'>
+    <table class='table'>
+        <tbody>
+            {% for object in all_objects %}
+            <tr>
+                <td><h3>{{object}}</h3></td>
+                <td>{{object.description}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

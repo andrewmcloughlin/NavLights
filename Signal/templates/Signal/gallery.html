@@ -1,0 +1,23 @@
+
+{% extends 'Signal/base.html' %}
+{% load static %}
+{% block content %}
+<div class='d-inline-flex flex-wrap justify-content-center container p-3 m-3'>
+    {% for object in all_objects %}
+    <div class='card p-2' style='width: 18rem;'>
+        <img class='card-img-top' src='{{object.image.url}}' alt='...'>
+        <div class='card-body'>
+            <h5 class='card-title'>{{object}}</h5>
+            <p class='card-text'>{{object.description}}</p>
+            <a href="{% url 'view' object.id %}" class='btn btn-outline-primary'>
+            <i class='fas fa-angle-right'></i></a>
+            <a href="{% url 'update' object.id %}" class='btn btn-outline-success'>
+            <i class='fas fa-pen'></i></a>
+            <a href="{% url 'delete' object.id %}" class='btn btn-outline-danger'>
+            <i class='fas fa-trash-alt'></i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
